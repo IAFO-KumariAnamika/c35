@@ -15,8 +15,7 @@ function setup(){
 function draw(){
     background("white");
     if(keyDown(LEFT_ARROW)){
-        ball.x=ballx-1;
-        ball.y=ball.y+0;
+       changePosition(-1,0);
     }
     else if(keyDown(RIGHT_ARROW)){
         changePosition(1,0);
@@ -31,8 +30,9 @@ function draw(){
 }
 
 function changePosition(x,y){
-  ball.x=ball.x+x;    //ball.x=ball.x+1
-  ball.y=ball.y+y     //ball.y=ball.y+0
+ database.ref('ball/position').set({
+     'x':position.x+x,
+     'y':position.y+y
 }
 
 function readPosition(data){
